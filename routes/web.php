@@ -34,6 +34,10 @@ Route::get('/blog', function () {
     return view('Frontend.ecommerce.blog');
 })->name('blog');
 
+Route::get('/v_admin', function () {
+    return view('Backend.admin.index');
+})->name('v_admin');
+
 Route::get('/templates', function () {
     return view('Frontend.components.layouts');
 });
