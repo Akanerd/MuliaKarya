@@ -41,3 +41,31 @@ Route::get('/v_admin', function () {
 Route::get('/templates', function () {
     return view('Frontend.components.layouts');
 });
+
+Route::get('/loginecommmerce', function () {
+    return view('Frontend.ecommerce.loginecommerce');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('Frontend.ecommerce.register');
+});
+
+Route::get('/resetpassword', function () {
+    return view('Frontend.ecommerce.resetpassword');
+});
+
+Route::get('/profilepage', function () {
+    return view('Frontend.ecommerce.profilepage');
+});
+
+Route::get('/resetlinkbefore', function () {
+    return view('Frontend.ecommerce.resetlinkbefore');
+});
+
+Route::get('/resetlinkafter', function () {
+    return view('Frontend.ecommerce.resetlink');
+});
+
+Route::get('/finishreset', function () {
+    return view('Frontend.ecommerce.finishreset');
+});

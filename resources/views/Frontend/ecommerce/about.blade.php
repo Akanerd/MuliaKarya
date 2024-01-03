@@ -97,7 +97,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
 
-                <!-- Start Column 1 -->
+                <!-- Start Column 1 --> 
                 <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
                     <img src="{{ asset('templates/images/person_1.jpg') }}" class="img-fluid mb-5">
                     <h3 clas><a href="#"><span class="">Lawson</span> Arnold</a></h3>
