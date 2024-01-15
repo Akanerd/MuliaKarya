@@ -1,29 +1,18 @@
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>General Dashboard &mdash; Stisla</title>
-  
-    <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/modules/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/modules/fontawesome/css/all.min.css') }}">
-  
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/modules/weather-icon/css/weather-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/modules/summernote/summernote-bs4.css') }}">
-  
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/dist/assets/css/components.css') }}">
-  <!-- Start GA -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'UA-94034622-3');
-  </script>
-  <!-- /END GA --></head>
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mulia Karya</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
+</head>

@@ -10,9 +10,9 @@
 
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                @if (Route::current()->getName() == 'index')
+                @if (Route::current()->getName() == 'customer.dashboard')
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('index') }}">Home</a>
+                        <a class="nav-link" href="{{ route('customer.dashboard') }}">Home</a>
                     </li>
                     <li><a class="nav-link" href="{{ route('shop') }}">Beli</a></li>
                     <li><a class="nav-link" href="{{ route('about') }}">Tentang Kami</a></li>
@@ -20,7 +20,7 @@
                     <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                 @endif
                 @if (Route::current()->getName() == 'shop')
-                    <li><a class="nav-link" href="{{ route('index') }}">Home</a></li>
+                    <li><a class="nav-link" href="{{ route('customer.dashboard') }}">Home</a></li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('shop') }}">Beli</a>
                     </li>
@@ -29,7 +29,7 @@
                     <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                 @endif
                 @if (Route::current()->getName() == 'about')
-                    <li><a class="nav-link" href="{{ route('index') }}">Home</a></li>
+                    <li><a class="nav-link" href="{{ route('customer.dashboard') }}">Home</a></li>
                     <li><a class="nav-link" href="{{ route('shop') }}">Beli</a></li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
@@ -38,7 +38,7 @@
                     <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                 @endif
                 @if (Route::current()->getName() == 'custom')
-                    <li><a class="nav-link" href="{{ route('index') }}">Home</a></li>
+                    <li><a class="nav-link" href="{{ route('customer.dashboard') }}">Home</a></li>
                     <li><a class="nav-link" href="{{ route('shop') }}">Beli</a></li>
                     <li><a class="nav-link" href="{{ route('about') }}">Tentang Kami</a> </li>
                     <li class="nav-item active">
@@ -47,7 +47,7 @@
                     <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                 @endif
                 @if (Route::current()->getName() == 'blog')
-                    <li><a class="nav-link" href="{{ route('index') }}">Home</a></li>
+                    <li><a class="nav-link" href="{{ route('customer.dashboard') }}">Home</a></li>
                     <li><a class="nav-link" href="{{ route('shop') }}">Beli</a></li>
                     <li><a class="nav-link" href="{{ route('about') }}">Tentang Kami</a> </li>
                     <li><a class="nav-link" href="{{ route('custom') }}">Kustomisasi Mebel</a></li>
@@ -56,12 +56,37 @@
                     </li>
                 @endif
             </ul>
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0">
                 <li><a class="nav-link" href="#"><img src="{{ asset('templates/images/user.svg') }}"></a></li>
-                <li><a class="nav-link" href="cart.html"><img src="{{ asset('templates/images/cart.svg') }}"></a></li>
-                <button type="submit" class="btn btn-primary transparent-bg">Logout</button>
+                <li><a class="nav-link" href="#"><img src="{{ asset('templates/images/cart.svg') }}"></a></li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-md-0 ms-1">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LogoutModal">
+                    <img src="{{ asset('templates/images/sign-out.png') }}" width="24"height="23">
+                </button>
             </ul>
         </div>
-    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Anda yakin untuk logout?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                        <form action="{{ route('logout') }}" method="post" id=logout>
+                            @csrf
+                            <button type="button" class="btn btn-danger"
+                                onclick="document.getElementById('logout').submit()">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </nav>
