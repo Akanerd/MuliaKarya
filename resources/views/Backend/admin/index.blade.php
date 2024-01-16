@@ -1,5 +1,5 @@
 @extends('Backend.components.layouts.master')
-
+@section('title','Main Page')
 @section('main')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

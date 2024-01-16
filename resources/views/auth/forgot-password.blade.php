@@ -1,5 +1,5 @@
 @extends('auth.components.layouts.master')
-
+@section('title','Forgot Password')
 @section('main')
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
@@ -31,9 +31,8 @@
                                 </div>
                                 <input name="forgot-password" id="forgot-password" class="btn btn-block login-btn mb-4" type="submit">
                             </form>
-                            <a href="{{ route('password.request') }}" class="forgot-password-link">Forgot password?</a>
-                            <p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}"
-                                    class="text-reset">Register here</a></p>
+                            <p class="login-card-footer-text">remember already? <a href="{{ route('login') }}"
+                                    class="text-reset">Login here</a></p>
                             <nav class="login-card-footer-nav">
                                 <a href="#!">Terms of use.</a>
                                 <a href="#!">Privacy policy</a>

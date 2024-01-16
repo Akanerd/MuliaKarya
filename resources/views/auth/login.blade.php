@@ -1,5 +1,5 @@
 @extends('auth.components.layouts.master')
-
+@section('title','Login')
 @section('main')
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
@@ -14,7 +14,7 @@
                                 <img src="{{ asset('auth/assets/images/logo.png') }}" alt="logo" width="100px"
                                     height="100px">
                             </div>
-                            
+
                             <p class="login-card-description">Sign into your account</p>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -54,5 +54,4 @@
                 </div>
             </div>
     </main>
-
 @endsection
