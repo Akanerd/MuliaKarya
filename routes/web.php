@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,7 @@ Route::get('/', function () {
 //admin routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [Homecontroller::class, 'admindashboard'])->name('admin.dashboard');
+    Route::resource('/admin/blog', BlogController::class, ['except' => ['show', 'edit', 'update']]);
 });
 
 //user routes
@@ -62,8 +65,13 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     })->name('blog');
 });
 
-// Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-//     ->middleware('auth')
-//     ->name('logout');
+
+Route::get('/coba', function () {
+
+    $date = Carbon::now()->format('M d, Y');
+
+    return $date;
+});
+
 
 require __DIR__ . '/auth.php';

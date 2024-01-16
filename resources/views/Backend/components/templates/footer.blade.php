@@ -40,24 +40,30 @@
 <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+{{-- <!-- AdminLTE for demo purposes -->
+<script src="{{ asset('admin/dist/js/demo.js') }}"></script> --}}
+@yield('custom-scripts')
+<script>
+  @if(session()->has('success'))
 
-<!-- Page specific script -->
-{{-- <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script> --}}
+  Swal.fire({
+      icon: 'success',
+      title: 'BERHASIL!',
+      text: '{{ session('success') }}',
+      showConfirmButton: false,
+      timer: 3000
+  })
+
+  @elseif(session()->has('error'))
+
+  Swal.fire({
+      icon: 'error',
+      text: 'GAGAL!',
+      title: '{{ session('error') }}',
+      showConfirmButton: false,
+      timer: 3000
+  })
+
+  @endif
+</script>
+

@@ -6,7 +6,7 @@
     <div class="wrapper">
         @include('Backend.components.templates.navbar')
 
-        @yield('main')
+        @yield('content')
 
         @include('Backend.components.templates.footer')
         <div class="modal fade" id="LogoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -33,6 +33,7 @@
                 </div>
             </div>
         </div>
+        @include('sweetalert::alert')
 </body>
 
 </html>

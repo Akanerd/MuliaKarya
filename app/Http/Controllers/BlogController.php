@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -12,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::latest()->paginate(3);
+        return view('Backend.admin.blog.index', compact('blogs'));
     }
 
     /**
@@ -20,7 +23,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('Backend.admin.blog.create');
     }
 
     /**
@@ -28,7 +31,28 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'image' => 'required|image|mimes:jpeg,jpg,png|max:2000',
+            'link' => 'required',
+        ]);
+
+        //upload image
+        $image = $request->file('image');
+        $image->storeAs('public/blog', $image->hashName());
+
+        //save to DB
+        $blog = Blog::create([
+            'title' => $request->title,
+            'image' => $image->hashName(),
+            'link' => $request->link,
+        ]);
+
+        if ($blog) {
+            return redirect()->route('blog.index')->with('success', 'Data Berhasil Disimpan!');
+        } else {
+            return redirect()->route('blog.index')->with('error', 'Data Gagal Disimpan!');
+        }
     }
 
     /**
@@ -58,8 +82,20 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        Storage::disk('local')->delete('public/blog/'.basename($blog->image));
+        $blog->delete();
+
+        if($blog){
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
     }
 }

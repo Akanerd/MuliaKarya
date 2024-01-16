@@ -57,11 +57,9 @@
                 @endif
             </ul>
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0">
-                <li><a class="nav-link" href="#"><img src="{{ asset('templates/images/user.svg') }}"></a></li>
-                <li><a class="nav-link" href="#"><img src="{{ asset('templates/images/cart.svg') }}"></a></li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-md-0 ms-1">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LogoutModal">
+                <button type="button" class="btn btn-primary nav-link" href="#"><img src="{{ asset('templates/images/user.svg') }}"></button>
+                <button class="btn btn-primary nav-link" href="#"><img src="{{ asset('templates/images/cart.svg') }}"></button>
+                <button type="button" class="btn btn-primary nav-link" data-bs-toggle="modal" data-bs-target="#LogoutModal">
                     <img src="{{ asset('templates/images/sign-out.png') }}" width="24"height="23">
                 </button>
             </ul>
