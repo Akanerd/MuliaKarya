@@ -16,7 +16,7 @@
     @include('Frontend.components.templates.navbar')
     <!-- End Header/Navigation -->
 
-    @yield('main')
+    @yield('content')
 
     <!-- Start Footer Section -->
     @include('Frontend.components.templates.footer')
