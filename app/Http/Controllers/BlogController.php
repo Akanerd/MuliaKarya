@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
 
 class BlogController extends Controller
 {
@@ -85,14 +86,14 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
-        Storage::disk('local')->delete('public/blog/'.basename($blog->image));
+        Storage::disk('local')->delete('public/blog/' . basename($blog->image));
         $blog->delete();
 
-        if($blog){
+        if ($blog) {
             return response()->json([
                 'status' => 'success'
             ]);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error'
             ]);
