@@ -1,6 +1,7 @@
 @extends('Frontend.components.layouts.master')
 
-@section('main')
+@section('title','Homepage')
+@section('content')
     		<!-- Start Hero Section -->
 			<div class="hero">
 				<div class="container">

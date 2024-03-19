@@ -5,8 +5,8 @@
 <body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         @include('Backend.components.templates.navbar')
-
-        @yield('main')
+        @include('sweetalert::alert')
+        @yield('content')
 
         @include('Backend.components.templates.footer')
         <div class="modal fade" id="LogoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

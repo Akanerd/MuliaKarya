@@ -1,6 +1,6 @@
 @extends('Backend.components.layouts.master')
-
-@section('main')
+@section('title','Main Page')
+@section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

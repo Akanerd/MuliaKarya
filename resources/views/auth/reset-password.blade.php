@@ -1,5 +1,5 @@
 @extends('auth.components.layouts.master')
-
+@section('title','Reset Password')
 @section('main')
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
@@ -54,8 +54,6 @@
                                 </div>
                                 <input name="reset" id="reset" class="btn btn-block login-btn mb-4" type="submit">
                             </form>
-                            <p class="login-card-footer-text">Already have an account? <a href="{{ route('login') }}"
-                                    class="text-reset">Login</a></p>
                             <nav class="login-card-footer-nav">
                                 <a href="#!">Terms of use.</a>
                                 <a href="#!">Privacy policy</a>

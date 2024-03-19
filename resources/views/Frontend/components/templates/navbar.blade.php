@@ -56,12 +56,10 @@
                     </li>
                 @endif
             </ul>
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0">
-                <li><a class="nav-link" href="#"><img src="{{ asset('templates/images/user.svg') }}"></a></li>
-                <li><a class="nav-link" href="#"><img src="{{ asset('templates/images/cart.svg') }}"></a></li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-md-0 ms-1">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LogoutModal">
+            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                <button class="btn btn-primary nav-link"><a href="{{ route('customer.profile') }}"><img src="{{ asset('templates/images/user.svg') }}"></a></button>
+                <button class="btn btn-primary nav-link"><a href="{{ route('customer.profile') }}"><img src="{{ asset('templates/images/cart.svg') }}"></a></button>
+                <button type="button" class="btn btn-primary nav-link" data-bs-toggle="modal" data-bs-target="#LogoutModal">
                     <img src="{{ asset('templates/images/sign-out.png') }}" width="24"height="23">
                 </button>
             </ul>
@@ -70,10 +68,6 @@
         <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
                     <div class="modal-body">
                         Anda yakin untuk logout?
                     </div>

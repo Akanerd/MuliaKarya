@@ -1,6 +1,6 @@
 @extends('Frontend.components.layouts.master')
 
-@section('main')
+@section('content')
     		<!-- Start Hero Section -->
 			<div class="hero">
 				<div class="container">
@@ -27,9 +27,7 @@
 		<!-- Start Blog Section -->
 		<div class="blog-section">
 			<div class="container">
-				
 				<div class="row">
-
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
 							<a href="#" class="post-thumbnail"><img src="{{ asset('templates/images/post-1.jpg') }}" alt="Image" class="img-fluid"></a>

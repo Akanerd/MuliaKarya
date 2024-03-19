@@ -13,5 +13,6 @@
     <link href="{{ asset('templates/css/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('templates/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('template/css/styleprofile.css') }}">
-    <title>Mebelku</title>
+    <title>Muliakarya - @yield('title')</title>
+    <link rel="icon" class="rounded-circle"  href="{{ asset('logo.png') }}" type="image/x-icon">
 </head>
