@@ -5,7 +5,7 @@
 <body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         @include('Backend.components.templates.navbar')
-
+        @include('sweetalert::alert')
         @yield('content')
 
         @include('Backend.components.templates.footer')
@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-        @include('sweetalert::alert')
 </body>
 
 </html>

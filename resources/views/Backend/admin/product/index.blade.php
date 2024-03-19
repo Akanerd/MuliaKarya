@@ -1,5 +1,5 @@
 @extends('Backend.components.layouts.master')
-@section('title', 'Blog Page')
+@section('title', 'Product Page')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -24,31 +24,36 @@
                     <div class="col-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3>Upload Insta Story</h3>
+                                <h3>List Product</h3>
                             </div>
                             <div class="card-body table-responsive">
-                                <a href="{{ route('blog.create') }}" class="btn btn-primary">Create</a>
+                                <a href="{{ route('product.create') }}" class="btn btn-primary">Create</a>
                                 <hr>
-                                <table id="blog" class="table table-bordered table-striped">
+                                <table id="product" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Title</th>
-                                            <th>Link</th>
-                                            <th>Image's Blog</th>
+                                            <th>Name</th>
+                                            <th>Image</th>
+                                            <th>Price</th>
+                                            <th>description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($blogs as $blog)
+                                        @forelse ($products as $product)
                                             <tr>
-                                                <td>{{ $blog->title }}</td>
-                                                <td>{{ $blog->link }}</td>
-                                                <td><a href="{{ $blog->image }}" data-fancybox="gallery">
-                                                        <img src="{{ $blog->image }}" alt="Image" width="90px"
+                                                <td>{{ $product->name }}</td>
+                                                <td><a href="{{ $product->image }}" data-fancybox="gallery">
+                                                        <img src="{{ $product->image }}" alt="Image" width="90px"
                                                             height="90px">
                                                     </a></td>
-                                                <td> <button onClick="destroy(this.id)" id="{{ $blog->id }}"
-                                                        class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> HAPUS</button></td>
+                                                <td>{{ moneyFormat($product->price) }}</td>
+                                                <td>{!! $product->description !!}</td>
+                                                <td>
+                                                    <a href="{{ route('product.edit', $product->id) }}" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i> EDIT</a>
+                                                    <button onClick="destroy(this.id)" id="{{ $product->id }}"
+                                                        class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> HAPUS</button>
+                                                </td>
                                             </tr>
                                         @empty
                                             <div class="alert alert-danger" role="alert">
@@ -100,7 +105,7 @@
                     if (result.isConfirmed) {
                         //ajax delete
                         jQuery.ajax({
-                            url: `/admin/blog/${id}`,
+                            url: `/admin/product/${id}`,
                             data: {
                                 "id": id,
                                 "_token": token
@@ -134,7 +139,7 @@
                 })
             }
             $(function() {
-                $('#blog').DataTable({
+                $('#product').DataTable({
                     "paging": true,
                     "lengthChange": false,
                     "searching": true,

@@ -2,6 +2,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [Homecontroller::class, 'admindashboard'])->name('admin.dashboard');
     Route::resource('/admin/blog', BlogController::class, ['except' => ['show', 'edit', 'update']]);
+    Route::resource('/admin/product', ProductController::class, ['except' => ['show']]);
 });
 
 //user routes

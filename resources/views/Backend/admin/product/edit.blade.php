@@ -1,5 +1,5 @@
 @extends('Backend.components.layouts.master')
-@section('title', 'Create Blog Page')
+@section('title', 'Edit Product Page')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -25,37 +25,48 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">UPLOAD INSTA STORY</h3>
+                                <h3 class="card-title">UPLOAD PRODUCT ITEM</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                            id="title" placeholder="Masukan judul" name="title"
-                                            value="{{ old('title') }}">
-                                        @error('title')
+                                        <label>Name</label>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            id="title" placeholder="Masukan Nama Product" name="name"
+                                            value="{{ old('name', $product->name) }}">
+                                        @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Link</label>
-                                        <input type="text" class="form-control @error('link') is-invalid @enderror"
-                                            id="link" placeholder="Masukan link instagram" name="link"
-                                            value="{{ old('link') }}">
-                                        @error('link')
+                                        <label>Price</label>
+                                        <input type="text" class="form-control @error('price') is-invalid @enderror"
+                                            id="link" placeholder="Masukan Harga Barang (ex: 1200000)" name="price"
+                                            value="{{ old('price', moneyFormat($product->price)) }}">
+                                        @error('price')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Image's Blog</label>
+                                        <label>Description</label>
+                                        <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"
+                                            placeholder="Masukkan Deskripsi">{{ old('description', $product->description) }}</textarea>
+                                        @error('description')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image's Product</label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file"
@@ -94,5 +105,22 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-
+@section('custom-scripts')
+    <script>
+        $(function() {
+            // Summernote
+            $('#description').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            })
+        });
+    </script>
+@endsection
 @endsection

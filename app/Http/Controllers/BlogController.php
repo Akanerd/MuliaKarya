@@ -32,11 +32,19 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'link' => 'required',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title' => 'required',
+                'image' => 'required|image|mimes:jpeg,jpg,png|max:5000',
+                'link' => 'required',
+            ],
+            [
+                'title.required' => 'Entry Title Harus Diisi',
+                'image.required' => 'Entry Title Harus Diisi',
+                'link.required' => 'Entry Title Harus Diisi',
+            ]
+        );
 
         //upload image
         $image = $request->file('image');
