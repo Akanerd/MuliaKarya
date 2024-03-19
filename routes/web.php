@@ -30,13 +30,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 //user routes
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/customer/dashboard', [Homecontroller::class, 'customerdashboard'])->name('customer.dashboard');
+    Route::get('/customer/dashboard', [ProductController::class, 'indexcustomer'])->name('customer.dashboard');
     Route::get('/customer/profile',[CustomerController::class, 'customerprofile'])->name('customer.profile');
     Route::post('/customer/profile/{id}', [CustomerController::class, 'updateorcreate'])->name('customer.updateorcreate');
-
-    Route::get('/index', function () {
-        return view('Frontend.ecommerce.index');
-    })->name('index');
 
     Route::get('/shop', function () {
         return view('Frontend.ecommerce.shop');

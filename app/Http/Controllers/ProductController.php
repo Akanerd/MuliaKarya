@@ -153,4 +153,10 @@ class ProductController extends Controller
             ]);
         }
     }
+
+    public function indexcustomer()
+    {
+        $products = Product::latest()->paginate(3);
+        return view('Frontend.ecommerce.index', compact('products'));
+    }
 }

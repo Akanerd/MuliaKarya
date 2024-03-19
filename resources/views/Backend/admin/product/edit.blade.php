@@ -48,7 +48,7 @@
                                         <label>Price</label>
                                         <input type="text" class="form-control @error('price') is-invalid @enderror"
                                             id="link" placeholder="Masukan Harga Barang (ex: 1200000)" name="price"
-                                            value="{{ old('price', moneyFormat($product->price)) }}">
+                                            value="{{ old('price', $product->price) }}">
                                         @error('price')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
